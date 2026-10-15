@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FOCUS Settings</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="options">
+  <header>
+    <img class="mark" src="icons/icon48.png" alt="FOCUS Logo">
+    <div>
+      <h1>FOCUS</h1>
+      <small>Settings & analytics</small>
+    </div>
+  </header>
+  <main>
+    <section class="panel">
+      <h2>Goals & learning</h2>
+      <label>Default study objective</label>
+      <input id="objective" maxlength="160" placeholder="e.g. Study data structures" autocomplete="off">
+      <label>Daily focus target (minutes)</label>
+      <input id="target" type="number" min="5" max="1440" value="120">
+    </section>
+    <section class="panel">
+      <h2>Selective YouTube policy</h2>
+      <p class="muted">Enforced only while Scheduled Focus Lock is active. Educational videos are allowed; Shorts are blocked.</p>
+      <label>Mixed content</label>
+      <select id="mixed">
+        <option value="block">Block by default</option>
+        <option value="allow">Allow</option>
+      </select>
+      <label>Uncertain content</label>
+      <select id="uncertain">
+        <option value="block">Block by default</option>
+        <option value="allow">Allow</option>
+      </select>
+      <label>Classification failure</label>
+      <select id="failure">
+        <option value="block">Block (recommended)</option>
+        <option value="allow">Allow</option>
+      </select>
+    </section>
+    <section class="panel">
+      <h2>Scheduled focus & Focus Lock</h2>
+      <label class="check">
+        <input id="enabled" type="checkbox"> Enable recurring schedule
+      </label>
+      <div class="two">
+        <div>
+          <label>Start</label>
+          <input id="startTime" type="time" value="18:00">
+        </div>
+        <div>
+          <label>End</label>
+          <input id="endTime" type="time" value="20:00">
+        </div>
+      </div>
+      <label>Active weekdays</label>
+      <div class="days" id="days"></div>
+      <p class="muted">Scheduled Focus Lock is the authority for YouTube blocking and protects settings during the window. Extensions cannot prevent native disable/uninstall actions.</p>
+    </section>
+    <section class="panel">
+      <h2>Backend (optional)</h2>
+      <label>Classification API base URL</label>
+      <input id="backend" type="url" placeholder="http://127.0.0.1:8000">
+      <p class="muted">External classification server URL (POST /classify). If empty, the local rule-based classifier runs automatically.</p>
+    </section>
+    <section class="panel">
+      <h2>Productivity analytics</h2>
+      <div class="stats">
+        <div class="stat">
+          <small>Today</small>
+          <strong id="today">0m</strong>
+        </div>
+        <div class="stat">
+          <small>This week</small>
+          <strong id="week">0m</strong>
+        </div>
+        <div class="stat">
+          <small>Average session</small>
+          <strong id="average">0m</strong>
+        </div>
+        <div class="stat">
+          <small>Completed</small>
+          <strong id="completed">0</strong>
+        </div>
+      </div>
+      <div id="chart" class="chart"></div>
+      <h3>Recent sessions</h3>
+      <div id="history"></div>
+    </section>
+    <div class="actions">
+      <button id="save" class="primary">Save settings</button>
+      <button id="reload">Reload saved settings</button>
+    </div>
+    <div id="notice"></div>
+  </main>
+  <script src="analytics.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

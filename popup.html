@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FOCUS</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="popup">
+  <header>
+    <img class="mark" src="icons/icon48.png" alt="FOCUS Logo">
+    <div>
+      <h1>FOCUS</h1>
+      <small>Digital Companion</small>
+    </div>
+    <span id="badge" class="badge">Lock Inactive</span>
+  </header>
+  <main>
+    <section class="panel">
+      <label for="objective">Today's study objective</label>
+      <input id="objective" maxlength="160" placeholder="e.g. Revise calculus" autocomplete="off">
+      <div id="timer" class="timer">00:00:00</div>
+      <p id="state" class="muted">Ready when you are.</p>
+      <div class="actions">
+        <button id="start" class="primary">Start session</button>
+        <button id="pause" hidden>Pause</button>
+        <button id="resume" hidden>Resume</button>
+        <button id="finish" class="danger" hidden>Finish</button>
+      </div>
+    </section>
+    <div class="stats">
+      <div class="stat">
+        <small>Today's focus</small>
+        <strong id="today">0m</strong>
+      </div>
+      <div class="stat">
+        <small>Completed</small>
+        <strong id="completed">0</strong>
+      </div>
+    </div>
+    <p class="footnote">All Shorts are blocked while Focus Lock is active. The local classifier is not production AI.</p>
+    <div id="notice"></div>
+    <nav>
+      <a href="options.html" target="_blank">Settings & analytics ↗</a>
+    </nav>
+  </main>
+  <script src="analytics.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
